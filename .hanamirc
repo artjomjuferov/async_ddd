@@ -1,0 +1,3 @@
+project=async_ddd
+test=rspec
+template=erb

@@ -1,0 +1,2 @@
+module AsyncDdd
+end
