@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Async Ddd
 
 Welcome to your new Hanami project!
@@ -31,3 +32,6 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 ```
 
 Explore Hanami [guides](https://guides.hanamirb.org/), [API docs](http://docs.hanamirb.org/1.3.3/), or jump in [chat](http://chat.hanamirb.org) for help. Enjoy! 🌸
+=======
+# async_ddd
+>>>>>>> Initial commit
