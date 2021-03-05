@@ -8,6 +8,9 @@ gem 'pg'
 
 gem 'bigdecimal', '~> 1.4'
 
+gem 'slim'
+gem 'byebug'
+
 group :development do
   # Code reloading
   # See: https://guides.hanamirb.org/projects/code-reloading
