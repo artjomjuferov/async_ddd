@@ -4,7 +4,7 @@ module Web
       class Create
         include Web::Action
 
-        def call(params)
+        def call params
           @task = TaskRepository.new.create(
             title: params[:task][:title],
             description: params[:task][:description],

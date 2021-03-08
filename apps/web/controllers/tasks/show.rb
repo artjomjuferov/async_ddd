@@ -6,7 +6,7 @@ module Web
 
         expose :task
 
-        def call(params)
+        def call params
           @task = TaskRepository.new.find params[:id]
         end
       end
