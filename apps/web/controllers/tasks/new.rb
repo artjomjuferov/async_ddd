@@ -1,13 +1,10 @@
 module Web
   module Controllers
     module Tasks
-      class Index
+      class New
         include Web::Action
 
-        expose :tasks
-
         def call(params)
-          @tasks = TaskRepository.new.all
         end
       end
     end
