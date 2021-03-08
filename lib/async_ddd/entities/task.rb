@@ -1,5 +1,6 @@
 class Task < Hanami::Entity
   OPEN_STATUS = 'open'.freeze
+  COMPLETED_STATUS = 'completed'.freeze
 
   attributes do
     attribute :id,          Types::Int
@@ -12,5 +13,9 @@ class Task < Hanami::Entity
 
     attribute :created_at,  Types::Time
     attribute :updated_at,  Types::Time
+  end
+
+  def completed?
+    status == COMPLETED_STATUS
   end
 end

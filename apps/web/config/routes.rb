@@ -4,5 +4,8 @@
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
 
-resources :tasks
-delete '/tasks/:id', to: 'tasks#destroy'
+resources :tasks do
+  member do
+    put :complete
+  end
+end

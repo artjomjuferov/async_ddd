@@ -7,3 +7,6 @@ br
 = task.popug_id
 br
 = delete_link task.id
+- unless task.completed?
+  br
+  = complete_link task.id
