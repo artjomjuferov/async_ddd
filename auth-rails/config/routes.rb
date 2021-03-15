@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :accounts do
-    collection do
-      get :current, on: :collection
-    end
+    get :current, on: :collection
   end
 
   use_doorkeeper

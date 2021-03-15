@@ -45,7 +45,33 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1 or /accounts/1.json
   def update
     respond_to do |format|
+      new_role = @account.role != account_params[:role] ? account_params[]
+
       if @account.update(account_params)
+        event = {
+          event_name: 'AccountUpdated',
+          data: {
+            public_id: @account.public_id,
+            email: @account.email,
+            full_name: @account.email
+          }
+        }
+
+        Producer.call(event.to_json, topic: 'accounts-stream')
+
+
+        if new_role
+          event = {
+            event_name: 'AccountRoleChanged',
+            data: {
+              public_id: @account.public_id,
+              role: @account.role
+            }
+          }
+
+          Producer.call(event.to_json, topic: 'accounts')
+        end
+
         format.html { redirect_to @account, notice: "Account was successfully updated." }
         format.json { render :show, status: :ok, location: @account }
       else
