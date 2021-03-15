@@ -18,4 +18,15 @@ class Account < ApplicationRecord
   before_create do
     self.public_id = SecureRandom.uuid
   end
+
+  after_create do
+    event = {
+      event_name: 'AccountCreated',
+      data: {
+        public_id: self.public_id
+      }
+    }
+
+    Producer.call event.to_json, topic: 'accounts-stream'
+  end
 end
